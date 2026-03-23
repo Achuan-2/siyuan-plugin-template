@@ -1,7 +1,7 @@
 {
-  "name": "siyuan-plugin-templates",
+  "name": "siyuan-plugin-template",
   "author": "Achuan-2",
-  "url": "https://github.com/Achuan-2/siyuan-plugin-templates",
+  "url": "https://github.com/Achuan-2/siyuan-plugin-template",
   "version": "0.0.1",
   "minAppVersion": "3.0.12",
   "backends": [
