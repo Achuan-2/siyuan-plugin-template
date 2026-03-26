@@ -26,7 +26,7 @@ import SettingPanel from "./SettingPanel.svelte";
 import { getDefaultSettings } from "./defaultSettings";
 import { setPluginInstance, i18n } from "./pluginInstance";
 import LoadingDialog from "./components/LoadingDialog.svelte";
-
+import { ChangelogUtils } from "./utils/changelogNotify";
 export const SETTINGS_FILE = "settings.json";
 
 
@@ -42,9 +42,9 @@ export default class PluginSample extends Plugin {
         setPluginInstance(this);
 
         // 加载设置
-        // 启动时强制从文件读取一次
         await this.loadSettings(true);
-
+        // 检查版本更新提醒
+        ChangelogUtils.checkAndNotify(this);
 
     }
 
