@@ -1,51 +1,34 @@
 {
-    "name": "Siyuan Plugin Template",
-    "settings": {
-        "settingsPanel": "Settings Panel",
-        "settingsGroup": {
-            "group1": "Tab1",
-            "group2": "Tab2",
-            "reset": "Reset Settings"
-        },
-        "textinput": {
-            "title": "Text Input",
-            "description": "Please enter text content",
-            "value": "Default text content"
-        },
-        "slider": {
-            "title": "Slider Setting",
-            "description": "Drag the slider to adjust the value"
-        },
-        "checkbox": {
-            "title": "Enable Feature",
-            "description": "Check to enable this feature"
-        },
-        "textarea": {
-            "title": "Text Area",
-            "description": "Multi-line text input area",
-            "placeholder": "Enter your text here...",
-            "value": "Default text content"
-        },
-        "hint": {
-            "title": "💡Important Notice",
-            "description": "This is a hint message to provide important information to users."
-        },
-        "select": {
-            "title": "Select Option",
-            "description": "Choose an option from the dropdown list",
-            "options": {
-                "option1": "Option 1",
-                "option2": "Option 2",
-                "option3": "Option 3"
-            }
-        },
-        "reset": {
-            "title": "Reset Settings",
-            "description": "Reset all settings to default values",
-            "label": "Reset",
-            "confirm": "Are you sure you want to reset all settings to default values?",
-            "confirmMessage": "Are you sure you want to reset all settings to default values? This action cannot be undone.",
-            "message": "All settings have been reset to default values"
-        }
-    }
+    "pluginName": "Siyuan Plugin Template",
+    "settingsPanel": "Settings Panel",
+    "settingsGroupGroup1": "Tab1",
+    "settingsGroupGroup2": "Tab2",
+    "settingsGroupReset": "Reset Settings",
+    "hintTitle": "💡Important Notice",
+    "hintDescription": "This is a hint message to provide important information to users.",
+    "textInputTitle": "Text Input",
+    "textInputDescription": "Please enter text content",
+    "textInputValue": "Default text content",
+    "sliderTitle": "Slider Setting",
+    "sliderDescription": "Drag the slider to adjust the value",
+    "checkboxTitle": "Enable Feature",
+    "checkboxDescription": "Check to enable this feature",
+    "textAreaTitle": "Text Area",
+    "textAreaDescription": "Multi-line text input area",
+    "textAreaPlaceholder": "Enter your text here...",
+    "textAreaValue": "Default text content",
+    "selectTitle": "Select Option",
+    "selectDescription": "Choose an option from the dropdown list",
+    "selectOptionsOption1": "Option 1",
+    "selectOptionsOption2": "Option 2",
+    "selectOptionsOption3": "Option 3",
+    "resetTitle": "Reset Settings",
+    "resetDescription": "Reset all settings to default values",
+    "resetLabel": "Reset",
+    "resetConfirmMessage": "Are you sure you want to reset all settings to default values? This action cannot be undone.",
+    "resetMessage": "All settings have been reset to default values",
+    "noUpdateNotes": "No update notes",
+    "moreChangelog": "For more changelog details, please visit:",
+    "iKnow": "Got it",
+    "changelogNotification": "Version update notification"
 }

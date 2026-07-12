@@ -18,28 +18,28 @@
 
     let groups: ISettingGroup[] = [
         {
-            name: i18n('settings.settingsGroup.group1') || 'Tab1',
+            name: i18n('settingsGroupGroup1') || 'Tab1',
             items: [
                 {
                     key: 'hint',
                     value: '',
                     type: 'hint',
-                    title: i18n('settings.hint.title'),
-                    description: i18n('settings.hint.description'),
+                    title: i18n('hintTitle'),
+                    description: i18n('hintDescription'),
                 },
                 {
                     key: 'textinput',
                     value: settings.textinput,
                     type: 'textinput',
-                    title: i18n('settings.textinput.title'),
-                    description: i18n('settings.textinput.description'),
+                    title: i18n('textInputTitle'),
+                    description: i18n('textInputDescription'),
                 },
                 {
                     key: 'slider',
                     value: settings.slider,
                     type: 'slider',
-                    title: i18n('settings.slider.title'),
-                    description: i18n('settings.slider.description'),
+                    title: i18n('sliderTitle'),
+                    description: i18n('sliderDescription'),
                     slider: {
                         min: 0,
                         max: 1,
@@ -49,63 +49,63 @@
             ],
         },
         {
-            name: i18n('settings.settingsGroup.group2') || 'Tab2',
+            name: i18n('settingsGroupGroup2') || 'Tab2',
             items: [
                 {
                     key: 'checkbox',
                     value: settings.checkbox,
                     type: 'checkbox',
-                    title: i18n('settings.checkbox.title'),
-                    description: i18n('settings.checkbox.description'),
+                    title: i18n('checkboxTitle'),
+                    description: i18n('checkboxDescription'),
                 },
                 // 'textarea'
                 {
                     key: 'textarea',
                     value: settings.textarea,
                     type: 'textarea',
-                    title: i18n('settings.textarea.title'),
-                    description: i18n('settings.textarea.description'),
+                    title: i18n('textAreaTitle'),
+                    description: i18n('textAreaDescription'),
                     direction: 'row',
                     rows: 6,
-                    placeholder: i18n('settings.textarea.placeholder'),
+                    placeholder: i18n('textAreaPlaceholder'),
                 },
                 {
                     key: 'select',
                     value: settings.select,
                     type: 'select',
-                    title: i18n('settings.select.title'),
-                    description: i18n('settings.select.description'),
+                    title: i18n('selectTitle'),
+                    description: i18n('selectDescription'),
                     options: {
-                        option1: i18n('settings.select.options.option1'),
-                        option2: i18n('settings.select.options.option2'),
-                        option3: i18n('settings.select.options.option3'),
+                        option1: i18n('selectOptionsOption1'),
+                        option2: i18n('selectOptionsOption2'),
+                        option3: i18n('selectOptionsOption3'),
                     },
                 },
             ],
         },
         {
-            name: i18n('settings.settingsGroup.reset') || 'Reset Settings',
+            name: i18n('settingsGroupReset') || 'Reset Settings',
             items: [
                 {
                     key: 'reset',
                     value: '',
                     type: 'button',
-                    title: i18n('settings.reset.title') || 'Reset Settings',
+                    title: i18n('resetTitle') || 'Reset Settings',
                     description:
-                        i18n('settings.reset.description') || 'Reset all settings to default values',
+                        i18n('resetDescription') || 'Reset all settings to default values',
                     button: {
-                        label: i18n('settings.reset.label') || 'Reset',
+                        label: i18n('resetLabel') || 'Reset',
                         callback: async () => {
                             confirm(
-                                i18n('settings.reset.title') || 'Reset Settings',
-                                i18n('settings.reset.confirmMessage') ||
+                                i18n('resetTitle') || 'Reset Settings',
+                                i18n('resetConfirmMessage') ||
                                     'Are you sure you want to reset all settings to default values? This action cannot be undone.',
                                 async () => {
                                     // 确认回调
                                     settings = { ...getDefaultSettings() };
                                     updateGroupItems();
                                     await saveSettings();
-                                    await pushMsg(i18n('settings.reset.message'));
+                                    await pushMsg(i18n('resetMessage'));
                                 },
                                 () => {
                                     // 取消回调（可选）
