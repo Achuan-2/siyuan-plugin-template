@@ -15,6 +15,10 @@ pnpm install
 pnpm run dev
 ```
 
+`pnpm build` generates `dist/` and `package.zip`, then automatically copies `dist/` to the SiYuan workspace. `pnpm dev` copies `dev/` after every build. Both modes wait for static assets to finish writing and use the plugin name from `plugin.json` as the destination subdirectory.
+
+Set `SIYUAN_PLUGIN_DIR` to override the default plugins directory in `scripts/make_dev_copy.js`. Copies replace matching build files and preserve other destination files. Sync failures are reported separately; retry with `pnpm make_dev_copy dist` or `pnpm make_dev_copy dev` (the default).
+
 
 ## 🙏 Acknowledgments
 

@@ -10,7 +10,7 @@ import fs from 'fs';
 import path from 'path';
 import { log, error, getSiYuanDir, chooseTarget, getThisPluginName, copyDirectory } from './utils.js';
 
-let targetDir = `D:\\Notes\\Siyuan\\Achuan-2\\data\\plugins`;
+let targetDir = process.env.SIYUAN_PLUGIN_DIR || `D:\\Notes\\Siyuan\\Achuan-2\\data\\plugins`;
 // let targetDir =`C:\\Users\\wangmin\\Documents\\siyuan_plugins_test\\data\\plugins`;
 // let targetDir =`C:\\Users\\wangmin\\Documents\\Project Code\\notebook\\data\\plugins`;
 
@@ -45,17 +45,22 @@ if (!fs.existsSync(targetDir)) {
 }
 
 /**
- * 2. The dev directory, which contains the compiled plugin code
+ * 2. Use the output directory of this build (dev by default).
  */
-const devDir = `${process.cwd()}/dev`;
-if (!fs.existsSync(devDir)) {
-    error(`Failed! Dev directory not exists: "${devDir}"`);
-    error('Please run "pnpm run build" or "pnpm run dev" first to generate the dev directory');
+const sourceName = process.argv[2] || 'dev';
+if (!['dev', 'dist'].includes(sourceName)) {
+    error('Usage: pnpm make_dev_copy [dev|dist]');
+    process.exit(1);
+}
+const sourceDir = path.resolve(sourceName);
+if (!fs.existsSync(sourceDir)) {
+    error(`Failed! Build directory does not exist: "${sourceDir}"`);
+    error('Please run "pnpm build" for dist or "pnpm dev" for dev first');
     process.exit(1);
 }
 
 /**
- * 3. The target directory to copy dev directory contents
+ * 3. The target directory for this plugin
  */
 const name = getThisPluginName();
 if (name === null) {
@@ -78,5 +83,6 @@ if (!fs.existsSync(targetPath)) {
  * 5. Copy/update all contents from dev directory to target directory
  * This will only update changed files instead of deleting everything
  */
-copyDirectory(devDir, targetPath);
-log(`>>> Successfully synchronized all files to SiYuan plugins directory!`);
+log(`>>> Synchronizing ${sourceDir} -> ${targetPath}`);
+copyDirectory(sourceDir, targetPath);
+log(`>>> Successfully synchronized ${sourceName} to SiYuan plugins directory!`);

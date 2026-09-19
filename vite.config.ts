@@ -6,7 +6,7 @@ import { svelte } from "@sveltejs/vite-plugin-svelte"
 import zipPack from "vite-plugin-zip-pack";
 import fg from 'fast-glob';
 import fs from 'fs';
-import { execSync } from 'child_process';
+import { execFileSync } from 'child_process';
 
 
 const env = process.env;
@@ -14,6 +14,7 @@ const isSrcmap = env.VITE_SOURCEMAP === 'inline';
 const isDev = env.NODE_ENV === 'development';
 
 const outputDir = isDev ? "dev" : "dist";
+let buildWritten = false;
 
 console.log("isDev=>", isDev);
 console.log("isSrcmap=>", isSrcmap);
@@ -41,24 +42,36 @@ export default defineConfig({
             ],
         }),
 
-        // Auto copy to SiYuan plugins directory in dev mode
-        ...(isDev ? [
-            {
-                name: 'auto-copy-to-siyuan',
-                writeBundle() {
+        // 开发和生产构建均同步，等待 JS、CSS、静态资源全部写入完成。
+        {
+            name: 'auto-copy-to-siyuan',
+            buildStart() {
+                buildWritten = false;
+            },
+            writeBundle() {
+                buildWritten = true;
+            },
+            closeBundle: {
+                order: 'post',
+                sequential: true,
+                handler() {
+                    if (!buildWritten) return;
                     try {
-                        // Run the copy script after build
-                        execSync('node --no-warnings ./scripts/make_dev_copy.js', {
+                        execFileSync(process.execPath, [
+                            '--no-warnings',
+                            resolve(__dirname, 'scripts/make_dev_copy.js'),
+                            outputDir,
+                        ], {
                             stdio: 'inherit',
-                            cwd: process.cwd()
+                            cwd: __dirname,
                         });
                     } catch (error) {
-                        console.warn('Auto copy to SiYuan failed:', error.message);
-                        console.warn('You can manually run: pnpm run make-link-win');
+                        console.warn('构建产物已生成，但自动同步到思源失败：', error.message);
+                        console.warn(`请重试：pnpm make_dev_copy ${outputDir}`);
                     }
-                }
-            }
-        ] : []),
+                },
+            },
+        },
 
     ],
 
