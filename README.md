@@ -37,7 +37,7 @@ Made with [contrib.rocks](https://contrib.rocks).
 
 ## ❤️用爱发电
 
-如果喜欢我的插件，欢迎给GitHub仓库点star和微信赞赏，这会激励我继续完善此插件和开发新插件。
+如果喜欢我的插件，欢迎给我买杯咖啡，这会激励我继续完善此插件和开发新插件。
 
 
 ![image](https://assets.b3logfile.com/siyuan/1610205759005/assets/network-asset-image-20250614123558-fuhir5v.png)
