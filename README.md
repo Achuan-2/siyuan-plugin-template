@@ -1,7 +1,7 @@
 
 ## 📝更新日志
 
-见[CHANGELOG.md](https://cdn.jsdelivr.net/gh/Achuan-2/siyuan-plugin-template@main/CHANGELOG.md)
+见[CHANGELOG.md](https://github.com/Achuan-2/siyuan-plugin-template/blob/main/CHANGELOG.md)
 
 
 ## 📄 许可证

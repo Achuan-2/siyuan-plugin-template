@@ -1,6 +1,6 @@
 ## 📝 Changelog
 
-See [CHANGELOG.md](https://cdn.jsdelivr.net/gh/Achuan-2/siyuan-plugin-copilot@main/CHANGELOG.md)
+See [CHANGELOG.md](https://github.com/Achuan-2/siyuan-plugin-template/blob/main/CHANGELOG.md)
 
 
 ## 📄 License
